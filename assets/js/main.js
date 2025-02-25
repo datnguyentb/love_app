@@ -7,7 +7,7 @@ var messageIndex = 0;
 
 
 no_btn.addEventListener("click", () => {
-    sound.play();
+    sound.onplay();
     let currentWidth = yes_btn.offsetWidth;
     let currentHeight = yes_btn.offsetHeight;
     let currentFontSize = parseFloat(window.getComputedStyle(yes_btn).fontSize);
