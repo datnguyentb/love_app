@@ -6,11 +6,14 @@ body {
   margin: 0;
   padding: 0; }
 
-#main {
+.main {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; }
+
+.no-display {
+  display: none; }
 
 .content {
   display: flex;

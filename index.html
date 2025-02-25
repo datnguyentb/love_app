@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love app</title>
+    <title>Intro</title>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
         * {
@@ -11,127 +11,55 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
+            background-color: black;
+            color: white;
+            font-family: 'VT323', monospace;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #000;
             overflow: hidden;
-            font-family: 'Courier New', monospace;
-            color: #0f0;
         }
-
-        /* Lớp hiệu ứng loading */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .intro {
             text-align: center;
-            z-index: 10;
-        }
-
-        /* Hiệu ứng chữ "Đang khởi động..." */
-        .loading-text {
-            font-size: 24px;
             opacity: 0;
-            animation: fadeInText 1.5s forwards;
+            animation: fadeIn 2s ease-in-out forwards, fadeOut 1s ease-in-out 3s forwards;
         }
-
-        @keyframes fadeInText {
-            0% { opacity: 0; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+        .intro h1 {
+            font-size: 50px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: shake 1s infinite alternate;
         }
-
-        /* Hiệu ứng scan ngang (nhanh hơn) */
-        .scan-line {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, #0f0, transparent);
-            animation: scanMove 1.5s linear infinite;
+        .intro p {
+            font-size: 20px;
+            margin-top: 10px;
         }
-
-        @keyframes scanMove {
-            0% { top: 0; }
-            100% { top: 100%; }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-
-        /* Hiệu ứng nhấp nháy nhanh hơn */
-        .blink {
-            animation: blinkEffect 0.5s infinite alternate;
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
-
-        @keyframes blinkEffect {
-            0% { opacity: 1; }
-            100% { opacity: 0.3; }
+        @keyframes shake {
+            0% { transform: translateX(0px); }
+            100% { transform: translateX(5px); }
         }
-
-        /* Nút Start */
-        #startButton {
-            display: none;
-            padding: 15px 30px;
-            font-size: 22px;
-            font-weight: bold;
-            background-color: #0f0;
-            color: black;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            position: absolute;
-            bottom: 50px;
-            animation: buttonFadeIn 1s 2s forwards;
-            opacity: 0;
-        }
-
-        #startButton:hover {
-            background-color: #00cc00;
-        }
-
-        @keyframes buttonFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
     </style>
-    
 </head>
 <body>
-
-    <!-- Lớp loading -->
-    <div class="loading-screen">
-        <div class="scan-line"></div>
-        <div class="loading-text">Đang khởi động hệ thống<span class="blink">...</span></div>
+    <div class="intro">
+        <h1>Welcome to My World</h1>
+        <p>Prepare yourself for an adventure!</p>
     </div>
 
-    <!-- Nút Start -->
-    <h1 class="typing"></h1>
-    <button id="startButton" onclick="startWebsite()">Start</button>
-
     <script>
-        // Sau 2 giây (thay vì 3s), ẩn loading và hiển thị nút Start
         setTimeout(() => {
-            document.querySelector(".loading-screen").style.display = "none";
-            document.getElementById("startButton").style.display = "block";
-        }, 5000);
-
-        // Khi nhấn Start, chuyển hướng đến trang chính
-        function startWebsite() {
-            window.location.href = "secondpage.html"; // Thay bằng trang chính của bạn
-        }
+            window.location.href = "second.html"; // Chuyển sang trang chính
+        }, 4000);
     </script>
-
 </body>
 </html>
